@@ -1,0 +1,21 @@
+.container{
+    margin: 20px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .test-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .timer {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  
