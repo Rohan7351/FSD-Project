@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CreateTest.css';
+import './assets/books.jpg'
 
 const CreateTest = () => {
     const navigate = useNavigate();
@@ -26,132 +27,89 @@ const CreateTest = () => {
     };
 
     return (
-        <section className="test-creation-page">
-            <div className="container">
-                <div className="row d-flex justify-content-center align-items-center">
-                    <div className="col-xl-6 d-none d-xl-block">
-                        <div className="image-container">
-                            <img src="https://michiganassessment.org/wp-content/uploads/2020/02/20.02.IMG_.PT-H2-680x453.jpg" alt="Exam Image" />
-                        </div>
-                    </div>
-                    <div className="col-xl-6">
-                        <div className="card-body p-md-5 text-black">
-                            <h3 className="mb-5 text-uppercase">Create Test</h3>
-                            <form onSubmit={handleSubmit}>
-                                <div className="row mb-4">
-                                    <div className="col-md-6">
-                                        <div className="form-outline">
-                                            <input 
-                                                type="text" 
-                                                id="title" 
-                                                name="title" 
-                                                placeholder='Exam Name'
-                                                className="form-control form-control-lg" 
-                                                value={testDetails.title} 
-                                                onChange={handleChange} 
-                                                required 
-                                            />
-                                            {/* <label className="form-label" htmlFor="title">Title</label> */}
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-outline">
-                                            <input 
-                                                type="text" 
-                                                id="category" 
-                                                name="category"
-                                                placeholder='Exam Catagory' 
-                                                className="form-control form-control-lg" 
-                                                value={testDetails.category} 
-                                                onChange={handleChange} 
-                                                required 
-                                            />
-                                            {/* <label className="form-label" htmlFor="category">Category</label> */}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row mb-4">
-                                    <div className="col-md-6">
-                                        <div className="form-outline">
-                                            <input 
-                                                type="number" 
-                                                id="passingScore" 
-                                                name="passingScore" 
-                                                placeholder='Passing Score'
-                                                className="form-control form-control-lg" 
-                                                value={testDetails.passingScore} 
-                                                onChange={handleChange} 
-                                                required 
-                                            />
-                                            {/* <label className="form-label" htmlFor="passingScore">Passing Score</label> */}
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-outline">
-                                            <input 
-                                                type="number" 
-                                                id="duration" 
-                                                name="duration" 
-                                                placeholder='Duration(in minutes)'
-                                                className="form-control form-control-lg" 
-                                                value={testDetails.duration} 
-                                                onChange={handleChange} 
-                                                required 
-                                            />
-                                            {/* <label className="form-label" htmlFor="duration">Duration (minutes)</label> */}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row mb-4">
-                                    <div className="col-md-6">
-                                        <div className="form-outline">
-                                            <label className="form-label" htmlFor="startTime">Start Time</label>
-                                            <input 
-                                                type="datetime-local" 
-                                                id="startTime" 
-                                                name="startTime" 
-                                                className="form-control form-control-lg" 
-                                                value={testDetails.startTime} 
-                                                onChange={handleChange} 
-                                                required 
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                            <label className="form-label" htmlFor="endTime">End Time</label>
-                                        <div className="form-outline">
-                                            <input 
-                                                type="datetime-local" 
-                                                id="endTime" 
-                                                name="endTime" 
-                                                className="form-control form-control-lg" 
-                                                value={testDetails.endTime} 
-                                                onChange={handleChange} 
-                                                required 
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="form-outline mb-4">
-                                    <textarea 
-                                        id="description" 
-                                        name="description" 
-                                        className="form-control form-control-lg" 
-                                        value={testDetails.description} 
-                                        onChange={handleChange} 
-                                        required
-                                    ></textarea>
-                                    <label className="form-label" htmlFor="description">Description</label>
-                                </div>
-                                <div className="d-flex justify-content-end pt-3">
-                                    <button type="submit" className="btn btn-warning btn-lg ms-2">Create Test</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <body className="main-container">
+        <div className="create-test-container">
+            <div className="image-container">
+                <img src="https://64.media.tumblr.com/91b0a582f92bffd85dafeabf80fd7bd1/tumblr_p4y9droeIE1ud1v24o1_1280.jpg" alt="Exam" />
+                <div className="image-overlay">
+                    <h2>#work</h2>
                 </div>
             </div>
-        </section>
+            <div className="form-container">
+                <h2 className="form-title">Create Test</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-row">
+                        <input 
+                            type="text" 
+                            name="title" 
+                            placeholder='Exam Name'
+                            value={testDetails.title} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                        <input 
+                            type="text" 
+                            name="category"
+                            placeholder='Exam Category' 
+                            value={testDetails.category} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="form-row">
+                        <input 
+                            type="number" 
+                            name="passingScore" 
+                            placeholder='Passing Score'
+                            value={testDetails.passingScore} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                        <input 
+                            type="number" 
+                            name="duration" 
+                            placeholder='Duration (in minutes)'
+                            value={testDetails.duration} 
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+                    <div className="form-row">
+                        <div className="datetime-input">
+                            <label htmlFor="startTime">Start Time</label>
+                            <input 
+                                type="datetime-local" 
+                                id="startTime" 
+                                name="startTime" 
+                                value={testDetails.startTime} 
+                                onChange={handleChange} 
+                                required 
+                            />
+                        </div>
+                        <div className="datetime-input">
+                            <label htmlFor="endTime">End Time</label>
+                            <input 
+                                type="datetime-local" 
+                                id="endTime" 
+                                name="endTime" 
+                                value={testDetails.endTime} 
+                                onChange={handleChange} 
+                                required 
+                            />
+                        </div>
+                    </div>
+                    <textarea 
+                        name="description" 
+                        placeholder="Description"
+                        value={testDetails.description} 
+                        onChange={handleChange} 
+                        required
+                    ></textarea>
+                    <button type="submit" className="submit-btn">Create Test</button>
+                </form>
+            </div>
+        </div>
+        </body>
     );
 };
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useLocation, useNavigate } from 'react-router-dom';
 import "./AddQuestions.css";
-
+import { colors } from "@mui/material";
 
 const AddQuestions = () => {
   const location = useLocation();
@@ -107,15 +107,16 @@ const AddQuestions = () => {
 
   return (
     <div className="create-test">
-      <h2>Create Test</h2>
+      <h2>Exam Details</h2>
 
       <div className="test-details-page">
         <div className="header">
-          <h1>{testDetails.title}</h1>
-          <p className="category">{testDetails.category}</p>
+          <h1>Exam Name - {testDetails.title}</h1>
+          
         </div>
         <div className="test-info">
           <p><strong>Description:</strong> {testDetails.description}</p>
+          <p><strong>Exam Catagory:</strong>{testDetails.category}</p>
           <p><strong>Duration:</strong> {testDetails.duration} minutes</p>
           <p><strong>Start Time:</strong> {new Date(testDetails.startTime).toLocaleString()}</p>
           <p><strong>End Time:</strong> {new Date(testDetails.endTime).toLocaleString()}</p>
@@ -137,7 +138,7 @@ const AddQuestions = () => {
                     <ul>
                       {question.options.map((option, idx) => (
                         <li key={idx} className={option === question.correctOption ? 'correct-option' : ''}>
-                          {option}
+                        <span style={{ color: 'black' }}>{idx + 1}.</span> {option}
                         </li>
                       ))}
                     </ul>
@@ -145,7 +146,19 @@ const AddQuestions = () => {
                 )}
                 {question.type === 'true-false' && (
                   <div className="true-false">
-                    <p><strong>Correct Answer:</strong> {question.correctOption}</p>
+                   <div className="options">
+                    <p><strong>Options:</strong></p>
+                    <ul>
+
+                      {question.options.map((option, idx) => (
+                       <li key={idx} className={option === question.correctOption ? 'correct-option' : ''}>
+                        <span style={{ color: 'black' }}>{idx + 1}.</span> {option}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                    
                   </div>
                 )}
                 {question.type === 'fill-in-the-blank' && (
@@ -161,28 +174,30 @@ const AddQuestions = () => {
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>New Question (Q.{questionNumber})</Modal.Title>
+          <Modal.Title>Question no.{questionNumber}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
-            <div>
-              <label>Question Type</label>
-              <select value={questionType} onChange={(e) => setQuestionType(e.target.value)}>
-                <option value="">Select Type</option>
-                <option value="multiple-choice">Multiple Choice</option>
-                <option value="true-false">True/False</option>
-                <option value="fill-in-the-blank">Fill in the Blank</option>
-              </select>
-              {errors.questionType && <p className="error">{errors.questionType}</p>}
+            <div className="form-row">
+              <div className="form-group">
+                <label>Question Type</label>
+                <select value={questionType} onChange={(e) => setQuestionType(e.target.value)}>
+                  <option value="">Select Type</option>
+                  <option value="multiple-choice">Multiple Choice</option>
+                  <option value="true-false">True/False</option>
+                  <option value="fill-in-the-blank">Fill in the Blank</option>
+                </select>
+                {errors.questionType && <p className="error">{errors.questionType}</p>}
+              </div>
+              <div className="form-group">
+                <label>Points</label>
+                <input type="number" value={points} placeholder="Enter points" onChange={(e) => setPoints(e.target.value)} />
+                {errors.points && <p className="error">{errors.points}</p>}
+              </div>
             </div>
-            <div>
-              <label>Points</label>
-              <input type="number" value={points} onChange={(e) => setPoints(e.target.value)} />
-              {errors.points && <p className="error">{errors.points}</p>}
-            </div>
-            <div>
+            <div className="form-group">
               <label>Question</label>
-              <input type="text" value={questionText} onChange={(e) => setQuestionText(e.target.value)} />
+              <input type="text" value={questionText} placeholder="Enter your question details" onChange={(e) => setQuestionText(e.target.value)} />
               {errors.questionText && <p className="error">{errors.questionText}</p>}
             </div>
             {questionType === "multiple-choice" && (
@@ -191,13 +206,13 @@ const AddQuestions = () => {
                 {options.map((option, index) => (
                   <div key={index} className="option-item">
                     <span>{String.fromCharCode(65 + index)}.</span>
-                    <input type="text" value={option} onChange={(e) => handleOptionChange(index, e)} />
-                    <button type="button" onClick={() => handleRemoveOption(index)}>X</button>
+                    <input className="option-input" type="text" value={option} onChange={(e) => handleOptionChange(index, e)} />
+                    <button className="close-button" type="button" onClick={() => handleRemoveOption(index)}>X</button>
                   </div>
                 ))}
                 <Button onClick={handleAddOption}>Add Option</Button>
                 {errors.options && <p className="error">{errors.options}</p>}
-                <div>
+                <div className="form-group">
                   <label>Correct Option</label>
                   <select value={correctOption} onChange={(e) => setCorrectOption(e.target.value)}>
                     <option value="">Select Correct Option</option>
@@ -234,6 +249,8 @@ const AddQuestions = () => {
           <Button variant="primary" onClick={handleSaveQuestion}>Save Question</Button>
         </Modal.Footer>
       </Modal>
+      
+      <Button onClick={handleNavigateToDetails}>Go to Create Test Page</Button>
     </div>
   );
 };

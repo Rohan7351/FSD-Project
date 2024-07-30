@@ -1,12 +1,24 @@
+.create-test h2 {
+  padding: 20px;
+  text-align: center;
+}
+
+.create-test h2 {
+  margin-bottom: 20px;
+}
+
 .test-details-page {
   font-family: Arial, sans-serif;
   padding: 20px;
   max-width: 800px;
   margin: auto;
+  margin-bottom: 20px;  
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .header {
   text-align: center;
@@ -23,6 +35,7 @@
   font-size: 1.2em;
   color: #666;
 }
+
 
 .test-info {
   margin-bottom: 20px;
@@ -64,10 +77,15 @@
   padding: 5px 0;
 }
 
-.correct-option {
-  color: #28a745;
-  font-weight: bold;
+/* .correct-option {
+  display: flex;
+  margin-top: 10px;
 }
+
+.correct-option label{
+  width: 40%;
+  font-size: medium;
+} */
 
 .true-false, .fill-in-the-blank {
   font-style: italic;
@@ -78,35 +96,100 @@
 }
 
 
+/* // */
 
-/* ////// */
 
-.create-test {
-  padding: 20px;
-}
 
-.create-test h2 {
+
+
+
+.header {
   margin-bottom: 20px;
 }
 
-.create-test button {
-  margin-top: 20px;
+.header h1 {
+  font-size: 2em;
 }
 
-.modal-body form {
+.header .category {
+  font-style: italic;
+}
+
+.test-info {
+  margin-bottom: 20px;
+}
+
+.test-info p {
+  margin: 5px 0;
+}
+
+
+
+.correct-option {
+  font-weight: bold;
+  color: green;
+}
+
+.modal-dialog {
+  max-width: 800px;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-header {
+  background-color: #007bff;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-title {
+  font-size: 1.5em;
+}
+
+.modal-footer {
+  border-top: 1px solid #ccc;
+}
+
+.modal-footer button {
+  margin: 0 10px;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.modal-body label {
-  display: block;
+.form-group {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-group:last-child {
+  margin-right: 0;
+}
+
+.form-group label {
+  font-weight: bold;
   margin-bottom: 5px;
+  display: block;
+  color: #333;
 }
 
-.modal-body input,
-.modal-body select {
+.form-group input,
+.form-group select {
   width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .option-item {
@@ -116,9 +199,18 @@
 }
 
 .option-item span {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
-.option-item button {
-  margin-left: 10px;
+.option-input {
+  width: 80%;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
 }

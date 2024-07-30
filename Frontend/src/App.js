@@ -5,6 +5,8 @@ import TakeTest from './TakeTest';
 import Login from './Login';
 import CreateTest from './CreateTest';
 import AddQuestions from './AddQuestions';
+// import TestContainer from './components/TestContainer';
+import TestPage from './components/TestPage';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/createtest/addquestions" element={<AddQuestions />} />
         <Route path="/taketest" element={<TakeTest />} />
         <Route path="/createtest" element={<CreateTest/>} />
+        {/* <Route path='/testcontainer' element={<TestContainer/>}/> */}
+        <Route path='/testpage' element={<TestPage/>}/>
         
       </Routes>
     </Router>
