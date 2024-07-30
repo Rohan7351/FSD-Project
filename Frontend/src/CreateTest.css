@@ -1,162 +1,69 @@
-.create-test-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.form-group label {
-  margin: 8px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.form-group.row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.question-input > button {
-  height: 100%;
-  margin: 5px;
-}
-
-.options-container {
-  margin-top: 10px;
-  margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.option-input {
-  flex: 1;
-  max-width: 50%;
-  margin-right: 10px;
-}
-
-.correct-option {
-  flex: 1;
-  margin-top: 15px;
-  width: 15rem;
-}
-
-#choose-option.form-control {
-  text-align: center;
-  max-width: 10rem;
-  min-width: 4rem;
-  height: 2.2rem;
-}
-
-.add-option-button {
-  margin: 40px 10px 10px 8px;
-  width: 30%;
-}
-
-#remove-option-button {
-  height: 1.8rem;
-}
-
-.btn-close {
-  background: transparent;
-  border: none;
-}
-
-.modal-content {
-  padding: 20px;
-}
-
-.modal-title {
-  font-size: 1.5rem;
-}
-
-.btn-primary,
-.btn-secondary {
-  min-width: 150px;
-}
-
-.card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  transition: box-shadow 0.3s;
-}
-
-.card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.options-container .left {
-  width: 150%;
-}
-
-.options-container .right {
-  width: 50%;
-}
-
-.mb-2 {
-  margin-bottom: 1rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-  width: 50%;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.form-control {
-  min-width: 8.5rem;
-}
-
-/* Media query for mobile display */
-@media (max-width: 768px) {
-  .options-container {
-    flex-direction: column;
-    margin-left: 0;
+.test-creation-page {
+    display: flex;
+    height: 100vh;
+    overflow-y:scroll ;
+  }
+  
+  .container {
+    display: flex;
+    flex: 1;
+  }
+  
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f8ff; /* Light sky blue background */
   }
 
-  .option-input {
+.image-container img {
     max-width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
+    height: auto;
+    border: 1px solid black;
   }
-
-  .add-option-button {
+  
+  .card-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto; /* Allow scrolling if the content overflows */
+    border: 1px solid black;
+  }
+  
+  .card-body h3 {
+    margin-bottom: 20px;
+  }
+  
+  .form-outline {
+    margin-bottom: 15px;
+  }
+  
+  .form-outline label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-outline input,
+  .form-outline textarea {
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
   }
-
-  .correct-option {
-    margin-top: 10px;
+  
+  textarea {
+    resize: vertical;
   }
-
-  #choose-option {
-    width: 100%;
+  
+  .btn {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
-
-  .options-container .left,
-  .options-container .right {
-    width: 100%;
+  
+  .btn:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
   }
-
-  .d-flex.justify-content-between {
-    flex-direction: column;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
+  

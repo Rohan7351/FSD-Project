@@ -1,19 +1,20 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CreateTest from './CreateTest';
-import PreviewPage from './PreviewPage';
 import TakeTest from './TakeTest';
-import TestList from './TestList';
+import Login from './Login';
+import CreateTest from './CreateTest';
+import AddQuestions from './AddQuestions';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<CreateTest />} />
-        <Route path="/preview" element={<PreviewPage />} />
-        <Route path="/take-test" element={<TakeTest />} />
-        <Route path="/test-list" element={<TestList />}/>
+        <Route path="/createtest/addquestions" element={<AddQuestions />} />
+        <Route path="/taketest" element={<TakeTest />} />
+        <Route path="/createtest" element={<CreateTest/>} />
+        
       </Routes>
     </Router>
   );

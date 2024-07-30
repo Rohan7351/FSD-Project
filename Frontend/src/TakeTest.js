@@ -117,7 +117,7 @@ function TakeTest() {
           <div key={qIndex} className="card mb-3">
             <div className="card-body">
               <h5 className="card-title">Question {qIndex + 1}</h5>
-              <div>{question.questionText}</div>
+              <div>{question.question}</div>
               {question.options.map((option, oIndex) => (
                 <div key={oIndex} className="form-check">
                   <input
